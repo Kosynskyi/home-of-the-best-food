@@ -1,2 +1,25 @@
-@import './common';
-@import './example';
+// @import './common';
+// @import './example';
+
+// UTILS
+@import './utils/mixins';
+@import './utils/normalize';
+@import './utils/vars';
+
+// BASE
+@import './base/base';
+@import './base/reset';
+
+// COMPONENTS
+@import './components/button';
+@import './components/header';
+@import './components/hero';
+@import './components/intro';
+@import './components/history';
+@import './components/_celebrate';
+@import './components/dishes';
+@import './components/menu';
+@import './components/feedback';
+@import './components/gallery';
+@import './components/chefs';
+@import './components/footer';

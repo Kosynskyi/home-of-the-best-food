@@ -1,0 +1,19 @@
+.button {
+  background-color: var(--primary-button-color);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.36;
+  text-transform: uppercase;
+  cursor: pointer;
+  //   border-color: transparent;
+  color: var(--white-color);
+}
+.button__primary {
+  padding: 14px 18px;
+}
+
+.button__secondary {
+  background-color: var(--primary-title-color);
+  padding: 14px 67px;
+  border: transparent;
+}

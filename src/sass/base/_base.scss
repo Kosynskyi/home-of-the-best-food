@@ -1,0 +1,49 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+.container {
+  padding: 0 22px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include mq(mobile) {
+    width: 320px;
+  }
+
+  @include mq(desktop) {
+    padding: 0 165px;
+    width: 100%;
+  }
+}
+
+.container {
+  padding-bottom: 100px;
+}
+
+.section__hero,
+.section__header {
+  background-image: url(./../images/hero_image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  // width: 100%;
+}
+
+.section__header {
+  height: 120px;
+  background-position: center 0;
+  background-size: cover;
+  // filter: grayscale(100%);
+}
+
+.section__hero {
+  min-height: calc(100vh - 120px);
+  background-position: center calc(-1 * 120px);
+}
