@@ -1,12 +1,10 @@
-// .section__chefs {
-// }
-
 .container__chefs {
-  padding-bottom: 100px;
-}
+  padding-bottom: 50px;
 
-// .chefs {
-// }
+  @include mq(desktop) {
+    padding-bottom: 100px;
+  }
+}
 
 .chefs__title {
   margin-bottom: 80px;

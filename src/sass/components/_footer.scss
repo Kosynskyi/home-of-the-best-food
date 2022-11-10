@@ -16,41 +16,82 @@
   justify-content: space-between;
   padding-top: 30px;
   padding-bottom: 30px;
+
+  @include mq(tablet) {
+    min-width: 768;
+  }
 }
 
 .footer__contact {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-left: 15px;
+
+  @include mq(desktop) {
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+  }
 }
 
 .footer__tel {
   position: relative;
-  padding-left: 30px;
+  padding-left: 15px;
   margin-bottom: 7px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.36;
   text-align: center;
   color: var(--white-color);
+
+  @include mq(desktop) {
+    font-size: 18px;
+    padding-left: 30px;
+  }
 
   &::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 23px;
-    height: 23px;
+    width: 18px;
+    height: 18px;
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url(./../images/icons/phone.svg);
+
+    @include mq(tablet) {
+      left: 30px;
+    }
+
+    @include mq(desktop) {
+      width: 23px;
+      height: 23px;
+      left: 0;
+    }
   }
 }
 
 .footer__text {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   line-height: 1.36;
   color: var(--white-color);
+  text-align: center;
+
+  @include mq(desktop) {
+    font-size: 14px;
+  }
+}
+
+.button__primary {
+  display: none;
+
+  @include mq(tablet) {
+    display: block;
+  }
+
+  @include mq(desktop) {
+    display: block;
+  }
 }

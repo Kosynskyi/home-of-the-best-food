@@ -28,19 +28,16 @@ body {
   padding-bottom: 100px;
 }
 
-.section__hero,
-.section__header {
+.section__hero {
   background-image: url(./../images/hero_image.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  // width: 100%;
 }
 
 .section__header {
   height: 120px;
-  background-position: center 0;
-  background-size: cover;
-  // filter: grayscale(100%);
+  background-image: url(./../images/hero_image.jpg);
+  background-repeat: no-repeat;
 }
 
 .section__hero {

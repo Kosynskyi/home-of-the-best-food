@@ -17,3 +17,25 @@
   padding: 14px 67px;
   border: transparent;
 }
+
+.button__primary--hidden {
+  display: none;
+  padding: 14px 18px;
+
+  @include mq(tablet) {
+    display: block;
+  }
+
+  @include mq(desktop) {
+    display: block;
+  }
+}
+
+.button__primary--footer {
+  display: none;
+  padding: 14px 18px;
+
+  @include mq(desktop) {
+    display: block;
+  }
+}

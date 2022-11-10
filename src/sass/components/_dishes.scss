@@ -54,8 +54,9 @@
 }
 
 .dishes__main-img {
-  width: 320px;
-  height: 478px;
+  min-width: 445px;
+  min-height: 478px;
+  margin-left: -100px;
 
   @include mq(desktop) {
     width: 445px;
