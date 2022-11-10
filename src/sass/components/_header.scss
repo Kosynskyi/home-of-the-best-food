@@ -88,8 +88,6 @@
 }
 
 .header__contact {
-  // display: none;
-
   @include mq(desktop) {
     margin-right: 45px;
     display: flex;
@@ -184,26 +182,6 @@
 .mobile-menu {
   display: none;
 
-  // @include mq(mobile) {
-  // display: none;
-  // position: absolute;
-  // top: 100%;
-  // left: 0;
-  // width: 100%;
-  // }
-
-  // @media screen and (max-width: 1365px) {
-  //   display: none;
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  // }
-
-  // @include mq(desktop) {
-  //   display: flex;
-  // }
-
   &.is-open {
     position: absolute;
     display: flex;
@@ -215,8 +193,6 @@
     left: -100%;
     width: 100%;
     transform: translateX(100%);
-
-    // color: rgb(220, 24, 96);
     padding: 20px 40px;
     text-align: center;
     font-size: 20px;
