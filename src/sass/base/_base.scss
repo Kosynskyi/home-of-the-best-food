@@ -32,15 +32,12 @@ body {
   background-image: url(./../images/hero_image.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: calc(100vh - 120px);
+  background-position: center calc(-1 * 120px);
 }
 
 .section__header {
   height: 120px;
   background-image: url(./../images/hero_image.jpg);
-  background-repeat: no-repeat;
-}
-
-.section__hero {
-  min-height: calc(100vh - 120px);
-  background-position: center calc(-1 * 120px);
+  background-repeat: repeat;
 }
