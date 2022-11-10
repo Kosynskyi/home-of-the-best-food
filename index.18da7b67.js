@@ -1,0 +1,2 @@
+console.log(2222);const e={burgerMenu:document.querySelector(".header__menu-btn"),isOpen:document.querySelector(".header__burger-open"),isClose:document.querySelector(".header__burger-close"),mobileMenu:document.querySelector(".mobile-menu")};e.burgerMenu.addEventListener("click",(function(){console.log("click on the burger menu"),e.burgerMenu.classList.toggle("is-open"),e.mobileMenu.classList.toggle("is-open");const r="true"===e.burgerMenu.getAttribute("aria-expanded")||!1;e.burgerMenu.setAttribute("aria-expanded",!r)}));
+//# sourceMappingURL=index.18da7b67.js.map
