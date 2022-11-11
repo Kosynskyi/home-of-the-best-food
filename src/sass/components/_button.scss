@@ -1,4 +1,5 @@
 .button {
+  padding: 14px 18px;
   background-color: var(--primary-button-color);
   font-size: 14px;
   font-weight: 700;
@@ -12,9 +13,6 @@
     cursor: pointer;
   }
 }
-.button__primary {
-  padding: 14px 18px;
-}
 
 .button__secondary {
   background-color: var(--primary-title-color);
@@ -22,23 +20,13 @@
   border: transparent;
 }
 
-.button__primary--hidden {
-  display: none;
-  padding: 14px 18px;
-
-  @include mq(tablet) {
-    display: block;
-  }
-
-  @include mq(desktop) {
-    display: block;
-  }
+.button__primary--celebrate {
+  display: block;
 }
 
 .button__primary--footer,
 .button__primary--header {
   display: none;
-  padding: 14px 18px;
 
   @include mq(desktop) {
     display: block;

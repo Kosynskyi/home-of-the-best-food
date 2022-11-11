@@ -55,8 +55,19 @@
 // .view-menu__item {
 // }
 
-// .view-menu__btn-close {
-// }
+.view-menu__btn-close {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  border: none;
+  background-color: transparent;
+  fill: var(--primary-button-color);
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}
 
 // .view-menu__burger-close {
 // }
