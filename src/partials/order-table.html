@@ -1,0 +1,56 @@
+<div class="order-table order-table__backdrop">
+  <div class="order-table order-table__modal-container">
+    <form class="order-table order-table__form">
+      <label class="order-table order-table__label">
+        <span class="order-table order-table__span">Имя</span>
+        <input
+          class="order-table order-table__input"
+          placeholder="Иван"
+          type="text"
+          name="name"
+        />
+      </label>
+      <label class="order-table order-table__label">
+        <span class="order-table order-table__span">Фамилия</span>
+        <input
+          class="order-table order-table__input"
+          placeholder="Иванов"
+          type="text"
+          name="surname"
+        />
+      </label>
+      <label class="order-table order-table__label">
+        <span class="order-table order-table__span">Дата</span>
+        <input class="order-table order-table__input" type="date" name="date" />
+      </label>
+      <label class="order-table order-table__label">
+        <span class="order-table order-table__span">Время</span>
+        <input class="order-table order-table__input" type="time" name="time" />
+      </label>
+      <label class="order-table order-table__label">
+        <span class="order-table order-table__span">Комментарий</span>
+        <textarea
+          class="order-table order-table__comments"
+          type="text"
+          name="comments"
+        ></textarea>
+      </label>
+      <button class="button button__primary--hero" type="button">
+        Заказать
+      </button>
+      <button
+        type="button"
+        class="order-table order-table__btn-close"
+        aria-expanded="false"
+        aria-controls="menu-container"
+      >
+        <svg width="31" height="31" aria-label="Закрытие меню заказа столика">
+          <use
+            class="order-table order-table__burger-close"
+            href="./images/icons/close-icon.svg#close"
+          ></use>
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>

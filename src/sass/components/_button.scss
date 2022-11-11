@@ -4,9 +4,13 @@
   font-weight: 700;
   line-height: 1.36;
   text-transform: uppercase;
-  cursor: pointer;
-  //   border-color: transparent;
+  border-color: transparent;
+  border-radius: 4px;
   color: var(--white-color);
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 .button__primary {
   padding: 14px 18px;
