@@ -27,6 +27,17 @@
         <span class="order-table order-table__span">Время</span>
         <input class="order-table order-table__input" type="time" name="time" />
       </label>
+
+      <label class="order-table order-table__label">
+        <span class="order-table order-table__span">Ваш номер телефона</span>
+        <input
+          class="order-table order-table__input"
+          type="tel"
+          name="phone"
+          placeholder="067 12 34 567"
+        />
+      </label>
+
       <label class="order-table order-table__label">
         <span class="order-table order-table__span">Комментарий</span>
         <textarea
@@ -35,7 +46,11 @@
           name="comments"
         ></textarea>
       </label>
-      <button class="button button__primary--hero" type="button">
+      <button
+        class="button button__primary--order"
+        type="submit"
+        data-action="order"
+      >
         Заказать
       </button>
       <button
