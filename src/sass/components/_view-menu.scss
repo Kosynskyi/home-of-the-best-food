@@ -28,6 +28,7 @@
   background-color: var(--white-color);
   border-radius: 4px;
   overflow: scroll;
+  overflow-x: hidden;
 
   @include mq(mobile) {
     min-width: 290px;

@@ -95,3 +95,19 @@
     display: block;
   }
 }
+
+.backToTopLink {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  opacity: 1;
+  transition: 1000ms;
+}
+
+.backToTop {
+  fill: var(--primary-button-color);
+}
+
+.is-hide {
+  opacity: 0;
+}

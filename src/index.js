@@ -6,6 +6,8 @@ import comments from './comments.json';
 const STORAGE_KEY = 'dataOrder';
 
 const refs = {
+  button: document.querySelector('.button'),
+  headerContainer: document.querySelector('.container__header'),
   burgerMenu: document.querySelector('.header__menu-btn'),
   mobileMenu: document.querySelector('.mobile-menu'),
   orderTableBtn: document.querySelector('.button__primary--celebrate'),
@@ -39,9 +41,18 @@ refs.modalViewBackdrop.addEventListener(
 refs.btnViewMenuClose.addEventListener('click', onCloseModalViewMenuByBtn);
 refs.formDataOrder.addEventListener('input', onSaveDataOrder);
 refs.formDataOrder.addEventListener('submit', onFormOrderSubmit);
+refs.button.addEventListener('click', hideHeader);
 // ====================feedback section====================
 // refs.arrowLeft.addEventListener('click', onChangeComments);
 // refs.arrowRight.addEventListener('click', onChangeComments);
+
+// ======функция скрытия хедера при открытии модалок======
+// ????????????????????????????????????
+// function hideHeader() {
+//   refs.headerContainer.style.position = 'sticky';
+//   return console.log('ку-ку-ку');
+// }
+// ????????????????????????????????????
 
 // функция открытия бургур меню
 function onClick() {
@@ -230,3 +241,11 @@ function renderFeedbackMarkup() {
 }
 
 renderFeedbackMarkup();
+// ====================backToTop====================
+window.onscroll = () => {
+  if (window.scrollY > 400) {
+    document.querySelector('.backToTopLink').classList.remove('is-hide');
+  } else if (window.scrollY < 400) {
+    document.querySelector('.backToTopLink').classList.add('is-hide');
+  }
+};
