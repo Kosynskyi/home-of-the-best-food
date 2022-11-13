@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Николай",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtN_eB8O7jZC7uNpiQ7Yc6lCuBUknlKTEayWTOzqi_wz_eq9jwbUJG2AyCuKOiDRcEyLs&usqp=CAU",
+    "feedback": "Я надолго запомню мой День рождения, проведённый в этом ресторане! Кусочек родной Армении!!! Отдельное спасибо за комплепент в виде фруктовой тарелки. Будем рекомендовать этот ресторан своим друзьям и родственникам также за рубежом, путешествующих в Киев!!!"
+  },
+  {
+    "id": 2,
+    "name": "Иван",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtN_eB8O7jZC7uNpiQ7Yc6lCuBUknlKTEayWTOzqi_wz_eq9jwbUJG2AyCuKOiDRcEyLs&usqp=CAU",
+    "feedback": "Комментарий 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero asperiores praesentium commodi eius temporibus rerum"
+  },
+  {
+    "id": 3,
+    "name": "Елена",
+    "photo": "https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon-thumbnail.png",
+    "feedback": "Комментарий 3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero asperiores praesentium commodi eius temporibus rerum"
+  },
+  {
+    "id": 4,
+    "name": "Степан",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtN_eB8O7jZC7uNpiQ7Yc6lCuBUknlKTEayWTOzqi_wz_eq9jwbUJG2AyCuKOiDRcEyLs&usqp=CAU",
+    "feedback": "Комментарий 4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero asperiores praesentium commodi eius temporibus rerum"
+  },
+  {
+    "id": 5,
+    "name": "Нина",
+    "photo": "https://w7.pngwing.com/pngs/633/39/png-transparent-female-portrait-avatar-face-head-black-hair-thumbnail.png",
+    "feedback": "Комментарий 5. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero asperiores praesentium commodi eius temporibus rerum"
+  }
+]

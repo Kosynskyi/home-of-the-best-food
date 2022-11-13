@@ -1,6 +1,8 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
+import comments from './comments.json';
+
 const STORAGE_KEY = 'dataOrder';
 
 const refs = {
@@ -15,8 +17,12 @@ const refs = {
   btnViewMenu: document.querySelector('.button__primary--hero'),
   modalViewBackdrop: document.querySelector('.view-menu__backdrop'),
   btnViewMenuClose: document.querySelector('.view-menu__btn-close'),
-  // ==================view-menu===========================
+  // ====================view-menu====================
   viewMenuList: document.querySelector('.view-menu__list'),
+  // ====================feedback section====================
+  arrowLeft: document.querySelector('.feedback__btn-previously'),
+  arrowRight: document.querySelector('.feedback__btn-next'),
+  feedbackList: document.querySelector('.feedback__list'),
 };
 
 refs.burgerMenu.addEventListener('click', onClick);
@@ -33,6 +39,9 @@ refs.modalViewBackdrop.addEventListener(
 refs.btnViewMenuClose.addEventListener('click', onCloseModalViewMenuByBtn);
 refs.formDataOrder.addEventListener('input', onSaveDataOrder);
 refs.formDataOrder.addEventListener('submit', onFormOrderSubmit);
+// ====================feedback section====================
+// refs.arrowLeft.addEventListener('click', onChangeComments);
+// refs.arrowRight.addEventListener('click', onChangeComments);
 
 // функция открытия бургур меню
 function onClick() {
@@ -157,3 +166,71 @@ async function createAndRenderRandomMarkup() {
     console.log(error);
   }
 }
+
+// =============feedback section==================
+// console.log('comments ', comments);
+let offset = 0;
+const sliderLine = document.querySelector('.feedback__line');
+
+refs.arrowRight.addEventListener('click', onChangeCommentsNext);
+refs.arrowLeft.addEventListener('click', onChangeCommentsPrev);
+
+// $mobile: 320px;
+// $tablet: 768px;
+
+function onChangeCommentsPrev() {
+  if (window.screen.width < 767) {
+    offset -= 290;
+    if (offset < 0) {
+      offset = (comments.length - 1) * 290;
+    }
+    sliderLine.style.left = -offset + 'px';
+  } else if (window.screen.width > 1366) {
+    offset -= 900;
+
+    if (offset < 0) {
+      offset = (comments.length - 1) * 900;
+    }
+
+    sliderLine.style.left = -offset + 'px';
+  }
+}
+
+function onChangeCommentsNext() {
+  if (window.screen.width < 767) {
+    offset += 290;
+    if (offset > (comments.length - 1) * 290) {
+      offset = 0;
+    }
+    sliderLine.style.left = -offset + 'px';
+  } else if (window.screen.width > 1366) {
+    offset += 900;
+    if (offset > (comments.length - 1) * 900) {
+      offset = 0;
+    }
+
+    sliderLine.style.left = -offset + 'px';
+  }
+}
+
+function createMarkup(arr) {
+  const markup = arr
+    .map(({ name, feedback, photo }) => {
+      return `<li class="feedback feedback__item">
+    <p class="feedback feedback__text"> ${feedback}</p>
+    <img class="feedback feedback__photo" src="${photo}" alt="фото посетителя" width="100" height="100" />
+    <p class="feedback feedback__visitor">Посетитель</p>
+    <p class="feedback feedback__cliet-name">${name}</p>
+    </li>`;
+    })
+    .join('');
+
+  refs.feedbackList.insertAdjacentHTML('beforeend', markup);
+  return markup;
+}
+
+function renderMarkup() {
+  createMarkup(comments);
+}
+
+renderMarkup();
