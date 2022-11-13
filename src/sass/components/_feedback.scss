@@ -3,6 +3,7 @@
 }
 
 .container__feedback {
+  position: relative;
   padding: 11px 15px 25px;
 
   @include mq(desktop) {
@@ -54,4 +55,43 @@
 .feedback__client {
   margin-bottom: 0;
   font-weight: 400;
+}
+
+.feedback__btn-next,
+.feedback__btn-previously {
+  position: absolute;
+  top: 50%;
+  // right: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  // transform: rotate(180deg);
+
+  @include mq(mobile) {
+    right: -10%;
+  }
+
+  @include mq(tablet) {
+    right: -40%;
+  }
+
+  @include mq(desktop) {
+    right: 10%;
+  }
+}
+
+.feedback__btn-previously {
+  transform: rotate(180deg);
+
+  @include mq(mobile) {
+    left: -115%;
+  }
+
+  @include mq(tablet) {
+    left: -220%;
+  }
+
+  @include mq(desktop) {
+    left: -60%;
+  }
 }

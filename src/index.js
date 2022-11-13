@@ -4,10 +4,7 @@ import Notiflix from 'notiflix';
 const STORAGE_KEY = 'dataOrder';
 
 const refs = {
-  body: document.body,
   burgerMenu: document.querySelector('.header__menu-btn'),
-  // isOpen: document.querySelector('.header__burger-open'),
-  // isClose: document.querySelector('.header__burger-close'),
   mobileMenu: document.querySelector('.mobile-menu'),
   orderTableBtn: document.querySelector('.button__primary--celebrate'),
   orderTableBtnHeader: document.querySelector('.button__primary--header'),
@@ -98,16 +95,8 @@ function onFormOrderSubmit(e) {
 // функция открытия модалки view menu
 function onOpenModalViewMenu() {
   refs.modalViewBackdrop.classList.toggle('is-open');
-  // fixedBody();
   createAndRenderRandomMarkup();
 }
-
-// функция фиксирования body от прокрутки
-
-// function fixedBody() {
-//   refs.body.style.position = 'fixed';
-//   refs.body.style.top = `-${window.scrollY}px`;
-// }
 
 // функция закрытия модалки ПО БЕКДРОПУ view menu
 function onCloseModalViewMenuByBackdrop(e) {
@@ -121,7 +110,7 @@ function onCloseModalViewMenuByBtn() {
   refs.modalViewBackdrop.classList.remove('is-open');
 }
 
-// =======================Запит на базу даних============API========
+// ========API=============Запит на базу даних=============API========
 
 const BASE_URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
 
@@ -149,9 +138,7 @@ function createRandomMarkup(arr) {
       return `<li class="view-menu view-menu__item">
     <img class="view-menu view-menu__img" src="${strMealThumb}" width="80" alt="Рандомная картинка еды"/>
   <p class="view-menu view-menu__name">${strMeal}</p>
-  </li>
-  
-  `;
+  </li>`;
     })
     .join('');
 }
