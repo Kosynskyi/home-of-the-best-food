@@ -41,7 +41,7 @@ refs.modalViewBackdrop.addEventListener(
 refs.btnViewMenuClose.addEventListener('click', onCloseModalViewMenuByBtn);
 refs.formDataOrder.addEventListener('input', onSaveDataOrder);
 refs.formDataOrder.addEventListener('submit', onFormOrderSubmit);
-refs.button.addEventListener('click', hideHeader);
+// refs.button.addEventListener('click', hideHeader);
 // ====================feedback section====================
 // refs.arrowLeft.addEventListener('click', onChangeComments);
 // refs.arrowRight.addEventListener('click', onChangeComments);
