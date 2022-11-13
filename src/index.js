@@ -55,7 +55,6 @@ function onClick() {
 
 // функция открытия модалки заказа столика
 function onOpenOrder() {
-  console.log(777);
   refs.modalBackdrop.classList.toggle('is-open');
 }
 
@@ -161,6 +160,7 @@ async function createAndRenderRandomMarkup() {
   try {
     const arr = await getRandomDish();
     const markup = createRandomMarkup(arr);
+
     renderMarkup(refs.viewMenuList, markup);
   } catch (error) {
     console.log(error);
@@ -168,15 +168,11 @@ async function createAndRenderRandomMarkup() {
 }
 
 // =============feedback section==================
-// console.log('comments ', comments);
 let offset = 0;
 const sliderLine = document.querySelector('.feedback__line');
 
 refs.arrowRight.addEventListener('click', onChangeCommentsNext);
 refs.arrowLeft.addEventListener('click', onChangeCommentsPrev);
-
-// $mobile: 320px;
-// $tablet: 768px;
 
 function onChangeCommentsPrev() {
   if (window.screen.width < 767) {
@@ -229,8 +225,8 @@ function createMarkup(arr) {
   return markup;
 }
 
-function renderMarkup() {
+function renderFeedbackMarkup() {
   createMarkup(comments);
 }
 
-renderMarkup();
+renderFeedbackMarkup();
