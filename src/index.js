@@ -7,6 +7,7 @@ const STORAGE_KEY = 'dataOrder';
 
 const refs = {
   button: document.querySelector('.button'),
+  buttonPrimary: document.querySelector('.button__primary'),
   headerContainer: document.querySelector('.container__header'),
   burgerMenu: document.querySelector('.header__menu-btn'),
   mobileMenu: document.querySelector('.mobile-menu'),
@@ -19,6 +20,8 @@ const refs = {
   btnViewMenu: document.querySelector('.button__primary--hero'),
   modalViewBackdrop: document.querySelector('.view-menu__backdrop'),
   btnViewMenuClose: document.querySelector('.view-menu__btn-close'),
+  // ====================gallery====================
+  galleryList: document.querySelector('.gallery__list'),
   // ====================view-menu====================
   viewMenuList: document.querySelector('.view-menu__list'),
   // ====================feedback section====================
@@ -41,18 +44,21 @@ refs.modalViewBackdrop.addEventListener(
 refs.btnViewMenuClose.addEventListener('click', onCloseModalViewMenuByBtn);
 refs.formDataOrder.addEventListener('input', onSaveDataOrder);
 refs.formDataOrder.addEventListener('submit', onFormOrderSubmit);
-// refs.button.addEventListener('click', hideHeader);
-// ====================feedback section====================
-// refs.arrowLeft.addEventListener('click', onChangeComments);
-// refs.arrowRight.addEventListener('click', onChangeComments);
+refs.orderTableBtn.addEventListener('click', onHideHeader);
 
 // ======функция скрытия хедера при открытии модалок======
-// ????????????????????????????????????
-// function hideHeader() {
-//   refs.headerContainer.style.position = 'sticky';
-//   return console.log('ку-ку-ку');
-// }
-// ????????????????????????????????????
+function onHideHeader() {
+  if (window.screen.width < 767) {
+    return (refs.headerContainer.style.position = 'sticky');
+  }
+}
+
+//функция возвращения фиксированого хедера для мобилки
+function onVisibleHeader() {
+  if (window.screen.width < 767) {
+    return (refs.headerContainer.style.position = 'fixed');
+  }
+}
 
 // функция открытия бургур меню
 function onClick() {
@@ -67,11 +73,13 @@ function onClick() {
 // функция открытия модалки заказа столика
 function onOpenOrder() {
   refs.modalBackdrop.classList.toggle('is-open');
+  onHideHeader();
 }
 
 // функция закрытия модалки заказа столика
 function onCloseOrderModal() {
   refs.modalBackdrop.classList.remove('is-open');
+  onVisibleHeader();
   // onCloseBackdropModal();
 }
 
@@ -80,6 +88,7 @@ function onCloseBackdropModal(e) {
   if (e.target === e.currentTarget) {
     refs.modalBackdrop.classList.remove('is-open');
   }
+  onVisibleHeader();
 }
 
 //функция сбора данных и сохранения для local storage
@@ -105,7 +114,6 @@ function onFormOrderSubmit(e) {
     return Notiflix.Notify.warning('Дата или время не может быть пустым');
   }
 
-  console.log('нажали отправить форму');
   refs.formDataOrder.reset();
   localStorage.removeItem(STORAGE_KEY);
 }
@@ -115,6 +123,7 @@ function onFormOrderSubmit(e) {
 function onOpenModalViewMenu() {
   refs.modalViewBackdrop.classList.toggle('is-open');
   createAndRenderRandomMarkup();
+  onHideHeader();
 }
 
 // функция закрытия модалки ПО БЕКДРОПУ view menu
@@ -122,11 +131,13 @@ function onCloseModalViewMenuByBackdrop(e) {
   if (e.target === e.currentTarget) {
     refs.modalViewBackdrop.classList.remove('is-open');
   }
+  onVisibleHeader();
 }
 
 // функция закрытия модалки ПО КНОПКЕ view menu
 function onCloseModalViewMenuByBtn() {
   refs.modalViewBackdrop.classList.remove('is-open');
+  onVisibleHeader();
 }
 
 // ========API=============Запит на базу даних=============API========
@@ -136,7 +147,7 @@ const BASE_URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
 async function getRandomDish() {
   try {
     let arr = [];
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < 12; i += 1) {
       const dish = await axios(BASE_URL);
       arr.push(dish);
     }
@@ -249,3 +260,29 @@ window.onscroll = () => {
     document.querySelector('.backToTopLink').classList.add('is-hide');
   }
 };
+
+// ====================gallery====================
+
+function createGalleryMarkup(arr) {
+  return arr
+    .map(item => {
+      const { strMeal, strMealThumb } = item.data.meals[0];
+
+      return `<li class="gallery gallery__item"><img class="gallery gallery__img" src="${strMealThumb}" alt="${strMeal}" width="290" height="290"/></li>
+      `;
+    })
+    .join('');
+}
+
+async function createAndRenderGalleryMarkup() {
+  try {
+    const arr = await getRandomDish();
+    const markup = createGalleryMarkup(arr);
+
+    renderMarkup(refs.galleryList, markup);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+console.log(createAndRenderGalleryMarkup());
