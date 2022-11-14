@@ -7,7 +7,7 @@
   z-index: 99999;
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
-  position: fixed;
+  // position: fixed;
   outline: 1px solid;
   display: flex;
   flex-direction: row;
@@ -21,22 +21,6 @@
     // padding-bottom: 100px;
   }
 }
-
-// .header-nav {
-// display: none;
-
-// @include mq(tablet) {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// @include mq(desktop) {
-//   display: flex;
-//   flex-direction: row;
-// }
-// }
 
 .header-nav__list {
   // display: none;

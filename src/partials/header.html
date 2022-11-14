@@ -1,6 +1,10 @@
 <section class="section section__header">
   <div class="container container__header">
-    <button type="button" class="header header__logo">
+    <button
+      type="button"
+      class="header header__logo"
+      aria-label="логотип ресторана"
+    >
       <svg class="header logo__svg" width="100" height="68">
         <use
           class="header logo__icon"
@@ -32,28 +36,55 @@
       <nav class="header header-nav">
         <ul class="header header-nav__list">
           <li class="header header-nav__item">
-            <a class="header header-nav__link" href="#main">Главная</a>
+            <a
+              class="header header-nav__link"
+              href="#main"
+              aria-label="переход на главную страницу"
+              >Главная</a
+            >
           </li>
           <li class="header header-nav__item">
-            <a class="header header-nav__link" href="#menu">Меню</a>
+            <a
+              class="header header-nav__link"
+              href="#menu"
+              aria-label="переход на раздел меню ресторана"
+              >Меню</a
+            >
           </li>
           <li class="header header-nav__item">
-            <a class="header header-nav__link" href="#about">О нас</a>
+            <a
+              class="header header-nav__link"
+              href="#about"
+              aria-label="переход в раздел об информации о ресторане"
+              >О нас</a
+            >
           </li>
           <li class="header header-nav__item">
-            <a class="header header-nav__link" href="#reserve">Бронь</a>
+            <a
+              class="header header-nav__link"
+              href="#reserve"
+              aria-label="переход на раздел заказа в ресторана"
+              >Бронь</a
+            >
           </li>
         </ul>
       </nav>
 
       <div class="header header__contact">
-        <a class="header header__tel" href="tel:+380631234567"
+        <a
+          class="header header__tel"
+          href="tel:+380631234567"
+          aria-label="телефон для связи с рестораном"
           >+38 (063) 12-34-567</a
         >
         <p class="header header__text">Свяжитесь с нами для бронирования</p>
       </div>
 
-      <button type="button" class="button button__primary--header">
+      <button
+        type="button"
+        class="button button__primary--header"
+        aria-label="кнопка заказа столика"
+      >
         Заказ столика
       </button>
     </div>

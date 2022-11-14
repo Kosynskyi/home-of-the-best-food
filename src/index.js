@@ -1,11 +1,13 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import comments from './comments.json';
 
 const STORAGE_KEY = 'dataOrder';
 
 const refs = {
+  gallery: document.querySelector('.gallery'),
   button: document.querySelector('.button'),
   buttonPrimary: document.querySelector('.button__primary'),
   headerContainer: document.querySelector('.container__header'),
@@ -44,21 +46,21 @@ refs.modalViewBackdrop.addEventListener(
 refs.btnViewMenuClose.addEventListener('click', onCloseModalViewMenuByBtn);
 refs.formDataOrder.addEventListener('input', onSaveDataOrder);
 refs.formDataOrder.addEventListener('submit', onFormOrderSubmit);
-refs.orderTableBtn.addEventListener('click', onHideHeader);
+// refs.orderTableBtn.addEventListener('click', onHideHeader);
 
 // ======функция скрытия хедера при открытии модалок======
-function onHideHeader() {
-  if (window.screen.width < 767) {
-    return (refs.headerContainer.style.position = 'sticky');
-  }
-}
+// function onHideHeader() {
+//   if (window.screen.width < 767) {
+//     return (refs.headerContainer.style.position = 'sticky');
+//   }
+// }
 
 //функция возвращения фиксированого хедера для мобилки
-function onVisibleHeader() {
-  if (window.screen.width < 767) {
-    return (refs.headerContainer.style.position = 'fixed');
-  }
-}
+// function onVisibleHeader() {
+//   if (window.screen.width < 767) {
+//     return (refs.headerContainer.style.position = 'fixed');
+//   }
+// }
 
 // функция открытия бургур меню
 function onClick() {
@@ -73,13 +75,13 @@ function onClick() {
 // функция открытия модалки заказа столика
 function onOpenOrder() {
   refs.modalBackdrop.classList.toggle('is-open');
-  onHideHeader();
+  // onHideHeader();
 }
 
 // функция закрытия модалки заказа столика
 function onCloseOrderModal() {
   refs.modalBackdrop.classList.remove('is-open');
-  onVisibleHeader();
+  // onVisibleHeader();
   // onCloseBackdropModal();
 }
 
@@ -88,7 +90,7 @@ function onCloseBackdropModal(e) {
   if (e.target === e.currentTarget) {
     refs.modalBackdrop.classList.remove('is-open');
   }
-  onVisibleHeader();
+  // onVisibleHeader();
 }
 
 //функция сбора данных и сохранения для local storage
@@ -123,7 +125,7 @@ function onFormOrderSubmit(e) {
 function onOpenModalViewMenu() {
   refs.modalViewBackdrop.classList.toggle('is-open');
   createAndRenderRandomMarkup();
-  onHideHeader();
+  // onHideHeader();
 }
 
 // функция закрытия модалки ПО БЕКДРОПУ view menu
@@ -131,13 +133,13 @@ function onCloseModalViewMenuByBackdrop(e) {
   if (e.target === e.currentTarget) {
     refs.modalViewBackdrop.classList.remove('is-open');
   }
-  onVisibleHeader();
+  // onVisibleHeader();
 }
 
 // функция закрытия модалки ПО КНОПКЕ view menu
 function onCloseModalViewMenuByBtn() {
   refs.modalViewBackdrop.classList.remove('is-open');
-  onVisibleHeader();
+  // onVisibleHeader();
 }
 
 // ========API=============Запит на базу даних=============API========
@@ -268,7 +270,7 @@ function createGalleryMarkup(arr) {
     .map(item => {
       const { strMeal, strMealThumb } = item.data.meals[0];
 
-      return `<li class="gallery gallery__item"><img class="gallery gallery__img" src="${strMealThumb}" alt="${strMeal}" width="290" height="290"/></li>
+      return `<a class="gallery__link" href="${strMealThumb}" ><img class="gallery gallery__img" src="${strMealThumb}" alt="${strMeal}" loading='lazy' width="290" height="290"/></a>
       `;
     })
     .join('');
@@ -279,10 +281,14 @@ async function createAndRenderGalleryMarkup() {
     const arr = await getRandomDish();
     const markup = createGalleryMarkup(arr);
 
-    renderMarkup(refs.galleryList, markup);
+    renderMarkup(refs.gallery, markup);
+
+    const lightbox = new SimpleLightbox('.gallery a', {
+      showCounter: false,
+      captionDelay: 250,
+    });
   } catch (error) {
     console.log(error);
   }
 }
-
-console.log(createAndRenderGalleryMarkup());
+createAndRenderGalleryMarkup();
